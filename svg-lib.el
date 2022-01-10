@@ -391,6 +391,7 @@ and additional style elements ARGS."
          (font-info       (font-info (format "%s-%d" font-family font-size)))
          (font-size       (aref font-info 2)) ;; redefine font-size
          (ascent          (aref font-info 8))
+         (descent         (aref font-info 9))
          (tag-char-width  (aref font-info 11))
          (tag-width       (* (+ (length label) padding) txt-char-width))
          (tag-height      (* txt-char-height height))
@@ -399,7 +400,8 @@ and additional style elements ARGS."
          (svg-ascent      (plist-get style :ascent))
          (tag-x  (* (- svg-width tag-width)  alignment))
          (text-x (+ tag-x (/ (- tag-width (* (length label) tag-char-width)) 2)))
-         (text-y ascent)
+         (text-y (+ (/ tag-height 2) descent))
+
          (tag-x      (if crop-left  (- tag-x     txt-char-width) tag-x))
          (tag-width  (if crop-left  (+ tag-width txt-char-width) tag-width))
          (text-x     (if crop-left  (- text-x (/ stroke 2)) text-x))
