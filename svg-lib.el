@@ -393,7 +393,7 @@ and additional style elements ARGS."
          (ascent          (aref font-info 8))
          (descent         (aref font-info 9))
          (tag-char-width  (aref font-info 11))
-         (tag-width       (* (+ (length label) padding) txt-char-width))
+         (tag-width       (* (+ (length label) padding) tag-char-width))
          (tag-height      (* txt-char-height height))
          (svg-width       (+ tag-width (* margin txt-char-width)))
          (svg-height      tag-height)
